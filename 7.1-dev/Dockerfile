@@ -10,4 +10,8 @@ RUN apk --no-cache add git \
     && rm composer-setup.php
     
 # Dev tools
-RUN apk add --no-cache zsh vim htop iotop curl wget ncdu
+RUN apk add --no-cache zsh vim htop curl wget ncdu rsync
+
+# Setup zsh
+RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh \
+    && cp /root/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
