@@ -1,7 +1,7 @@
 FROM doriangray/nginx-php-symfony:7.1-prod
 
 # Composer / PhpUnit
-RUN apk --no-cache add git --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ \
+RUN apk --no-cache add git \
     && mkdir /var/opt/composer \
     && cd /var/opt/composer \
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -19,7 +19,7 @@ RUN apk add --no-cache autoconf gcc g++ libtool make \
     && rm -rf /tmp/* /var/cache/apk/*
     
 # Codesniffer
-RUN apk --no-cache add patch --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ \
+RUN apk --no-cache add patch \
     && pear install PHP_CodeSniffer-3.0.0RC4
 
 # PHP MD

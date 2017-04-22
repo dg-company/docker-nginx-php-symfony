@@ -1,7 +1,7 @@
 FROM doriangray/nginx-php-symfony:7.1-prod
 
 # Composer
-RUN apk --no-cache add git --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ \
+RUN apk --no-cache add git \
     && mkdir /var/opt/composer \
     && cd /var/opt/composer \
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \

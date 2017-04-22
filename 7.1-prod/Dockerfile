@@ -1,7 +1,6 @@
 FROM php:7.1-fpm-alpine
 
-RUN apk --no-cache add nginx supervisor curl unzip \
-    --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/
+RUN apk --no-cache add nginx supervisor curl unzip
     
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
