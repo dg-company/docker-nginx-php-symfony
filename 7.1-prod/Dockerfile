@@ -17,6 +17,9 @@ COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN mkdir -p /var/www && chown -R www-data:www-data /var/www && rm -R /var/www/*
 WORKDIR /var/www
 
+# Add PHP extensions
+RUN docker-php-ext-install pdo_mysql && docker-php-ext-install mysqli
+
 # Add redis PHP extension
 RUN apk add --no-cache autoconf gcc g++ imagemagick-dev libtool make openssl-dev \
     && pecl install redis-3.1.2 mongodb-1.2.8 imagick-3.4.3 \
